@@ -40,7 +40,7 @@ Bundle 'powerman/vim-plugin-viewdoc'
 Bundle 'majutsushi/tagbar'
 Bundle 'int3/vim-taglist-plus'
 Bundle 'jimsei/winresizer.git'
-"mw-utils & tlib required for Snipmate
+" mw-utils & tlib required for Snipmate
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle "tomtom/tlib_vim"
 Bundle 'garbas/vim-snipmate'
@@ -119,7 +119,33 @@ set expandtab                       " Expand <Tab> to spaces
 set nofoldenable                    " All fold will be open 
 set laststatus=2                    " Sets when the last window will have a status line, set to always 
 set t_Co=256                        " Number of colors 
-set encoding=utf-8                  " Set the cahracter encoding used inside VIM. Applies to text in buffers, registers, Strings in expressions etc. 
+set encoding=utf-8                  " Set the character encoding used inside VIM. Applies to text in buffers, registers, Strings in expressions etc. 
 set spelllang=en_us 
 
+" Normal mode key mappings 
+nnoremap <silent><s-up> :m -2<cr>           " move line up 1
+nnoremap <silent><s-down> :m +1<cr>         " move line down 1
+nnoremap <silent><leader>s :set spell!<cr>  " toggle highlight of spelling mistakes
+nnoremap <silent><leader>sm  i<c-x>
+nnoremap <silent>go o<esc>j                 " Insert newline below without entering insert mode
+nnoremap <silent>gO O<esc>j                 " Insert newline above without entering insert mode
+nnoremap <Up> <NOP>
+nnoremap <Down> <NOP>
+nnoremap <Left> <NOP>
+nnoremap <Right> <NOP>
+
+" Insert mode key mappings 
+inoremap <tab> <c-n>                        " Use tab to bring up completion menu and move forward
+inoremap <s-tab> <c-p>                      " Use Shift tab to go backwards through completion menu
+
+" Visual mode key mappings
+vnoremap <Up> <NOP>
+vnoremap <Down> <NOP>
+vnoremap <Left> <NOP>
+vnoremap <Right> <NOP>
+vnoremap <silent> <Enter> :EasyAlign<cr>
+
+" Auto commands
+au InsertEnter * set cursorline     " highlight the line the cursor is on when entering insert mode
+au InsertLeave * set nocursorline   " stop highlighting the cursor line when leave insert mode
 
