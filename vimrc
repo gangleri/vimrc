@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 
 " VIM general
 Bundle 'kien/ctrlp.vim'
+Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/AutoClose'
 Bundle 'tpope/vim-surround'
@@ -44,17 +45,34 @@ Bundle 'jimsei/winresizer.git'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle "tomtom/tlib_vim"
 Bundle 'garbas/vim-snipmate'
+Bundle 'szw/vim-smartclose'
+Bundle 'Lokaltog/powerline'
+Bundle 'Lokaltog/powerline-fonts'
 
 " HTML Bundles
 Bundle 'mattn/zencoding-vim'
+Bundle 'lukaszb/vim-web-indent'
+Bundle 'othree/html5-syntax.vim'
+
+" HTML templating 
+Bundle 'digitaltoad/vim-jade'
+Bundle 'nono/vim-handlebars'
 
 " JavaScript/Node Bundles
-Bundle 'sleistner/vim-jshint'
+Bundle 'pangloss/vim-javascript'
+Bundle 'helino/vim-json'
+Bundle 'einars/js-beautify'
+Bundle 'vim-scripts/pathogen.vim'
+Bundle 'mmalecki/vim-node.js'
 
 " CSS Bundles
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'stubbornella/csslint'
+Bundle 'skammer/vim-css-color'
 
 " C/C++
 Bundle 'vim-scripts/CRefVim'
+Bundle 'vim-scripts/vimgdb'
 
 " C#
 Bundle 'xandox/vim-csharp'
@@ -69,6 +87,7 @@ Bundle 'oscarh/vimerl'
 " Git
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
+Bundle 'rdolgushin/gitignore.vim'
 
 " Misc
 Bundle 'vim-scripts/awk.vim'
@@ -86,8 +105,10 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
 let g:NERDTreeWinSize = 32
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+let g:ctrlp_extensions = ['funky']
 
-runtime macros/matchit.vim    " use matchit that comes with vim
+runtime macros/matchit.vim          " use matchit that comes with vim
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " VIM settins
 set nowrap                          " Disable line wrapping, will now scroll horizontially for long linnes
@@ -95,7 +116,6 @@ set showcmd                         " Have bottom line show details of command b
 set mouse=a                         " enable scrolling in the terminal vim
 set autoindent                      " Copy indent from current line when starting a new line
 set cindent                         " Indent C style programs 
-"set smartindent
 set wildmode=longest,list,full      " How complection mode will operate, complete longest first, show list if more than 1 and complete next full match
 set wildmenu                        " command line completion operate in enhanced mode
 set number                          " show line numbers
@@ -108,7 +128,7 @@ set hlsearch                        " Highlight all matches of a previous search
 set title                           " Set the title of the window to the value contained in 'titlestring' 
 set titlestring=\%t\ %a%r%m titlelen=70
 " Disable beep and flash 
-set vb t_vb=".  
+set vb t_vb=". c
 set directory=$HOME/.vim/tmp//,.    " Keep swap files in one location 
 set nobackup                        " don't make backups before overwriting a file * 
 set nowritebackup                   " don't make backups before overwriting a file 
@@ -127,7 +147,7 @@ nnoremap <silent><s-up> :m -2<cr>           " move line up 1
 nnoremap <silent><s-down> :m +1<cr>         " move line down 1
 nnoremap <silent><leader>s :set spell!<cr>  " toggle highlight of spelling mistakes
 nnoremap <silent><leader>sm  i<c-x>
-nnoremap <silent>go o<esc>j                 " Insert newline below without entering insert mode
+nnoremap <silent>go o<esc>k                 " Insert newline below without entering insert mode
 nnoremap <silent>gO O<esc>j                 " Insert newline above without entering insert mode
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
@@ -137,6 +157,10 @@ nnoremap <Right> <NOP>
 " Insert mode key mappings 
 inoremap <tab> <c-n>                        " Use tab to bring up completion menu and move forward
 inoremap <s-tab> <c-p>                      " Use Shift tab to go backwards through completion menu
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
 
 " Visual mode key mappings
 vnoremap <Up> <NOP>
