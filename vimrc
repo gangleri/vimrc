@@ -83,6 +83,7 @@ Bundle 'nvie/vim-flake8'
 
 " Erlang
 Bundle 'oscarh/vimerl'
+Bundle 'hcs42/vim-erlang'
 
 " Git
 Bundle 'airblade/vim-gitgutter'
@@ -143,24 +144,32 @@ set encoding=utf-8                  " Set the character encoding used inside VIM
 set spelllang=en_us 
 
 " Normal mode key mappings 
-nnoremap <silent><s-up> :m -2<cr>           " move line up 1
-nnoremap <silent><s-down> :m +1<cr>         " move line down 1
-nnoremap <silent><leader>s :set spell!<cr>  " toggle highlight of spelling mistakes
-nnoremap <silent><leader>sm  i<c-x>
-nnoremap <silent>go o<esc>k                 " Insert newline below without entering insert mode
-nnoremap <silent>gO O<esc>j                 " Insert newline above without entering insert mode
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
+nnoremap <f5> :!ctags -R<cr>
+nnoremap <silent><s-up> :m -2<cr>           " move line up 1
+nnoremap <silent><s-down> :m +1<cr>         " move line down 1
+nnoremap <silent><leader>s :set spell!<cr>  " toggle highlight of spelling mistakes
+nnoremap <silent><leader>sm  i<c-x>
+nnoremap <silent>go o<esc>j                 " Insert newline below without entering insert mode
+nnoremap <silent>gO O<esc>j                " Insert newline above without entering insert mode
+nnoremap <silent><leader>f :CtrlP<Enter>
+nnoremap <silent><Leader>fu :CtrlPFunky<Cr>
+nnoremap <silent><Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>  " narrow the list down with a word under cursor
+nnoremap <silent><leader>n :call ToggleNERDTree()<cr>
+nnoremap <silent><leader>m :TagbarToggle<cr>
+nnoremap <silent><leader>ln :call ToggleNumRel()<cr>
+nnoremap <silent><leader>qf :call ToggleQuickfix()<cr>
 
 " Insert mode key mappings 
-inoremap <tab> <c-n>                        " Use tab to bring up completion menu and move forward
-inoremap <s-tab> <c-p>                      " Use Shift tab to go backwards through completion menu
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+inoremap <tab> <c-n>                 " Use tab to bring up completion menu and move forward
+inoremap <s-tab> <c-p>               " Use Shift tab to go backwards through completion menu
 
 " Visual mode key mappings
 vnoremap <Up> <NOP>
@@ -172,4 +181,56 @@ vnoremap <silent> <Enter> :EasyAlign<cr>
 " Auto commands
 au InsertEnter * set cursorline     " highlight the line the cursor is on when entering insert mode
 au InsertLeave * set nocursorline   " stop highlighting the cursor line when leave insert mode
+au InsertLeave * Autoformat         " call auto format when leaving insert mode so that code remain formatted
+
+" My Vim script functions
+
+function! ToggleNERDTree()
+  let w:jumpbacktohere = 1
+  " Detect which plugins are open
+  if exists('t:NERDTreeBufName')
+    let nerdtree_open = bufwinnr(t:NERDTreeBufName) != -1
+  else
+    let nerdtree_open = 0
+  endif
+
+  " Perform the appropriate action
+  if nerdtree_open
+    NERDTreeClose
+  else
+    NERDTree
+  endif
+
+  " Jump back to the original window
+  for window in range(1, winnr('$'))
+    execute window . 'wincmd w'
+    if exists('w:jumpbacktohere')
+      unlet w:jumpbacktohere
+      break
+    endif
+  endfor
+endfunction
+
+function! ToggleNumRel()
+  if(&nu == 1)
+    set rnu
+  else
+    set nu
+  endif
+endfunction
+
+let g:quickfix_is_open = 0
+
+function! ToggleQuickfix()
+  if g:quickfix_is_open
+    cclose
+    let g:quickfix_is_open = 0
+    execute g:quickfix_return_to_window . "wincmd w"
+  else
+    let g:quickfix_return_to_window = winnr()
+    copen
+    let g:quickfix_is_open = 1
+  endif
+endfunction
+
 
