@@ -48,6 +48,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'szw/vim-smartclose'
 Bundle 'Lokaltog/powerline'
 Bundle 'Lokaltog/powerline-fonts'
+Bundle 'gangleri/vim-diffsaved'
 
 " HTML Bundles
 Bundle 'mattn/zencoding-vim'
@@ -106,7 +107,9 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
 let g:NERDTreeWinSize = 32
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+let g:viewdoc_open='botright vnew'
 let g:ctrlp_extensions = ['funky']
+let g:Powerline_symbols = 'fancy'
 
 runtime macros/matchit.vim          " use matchit that comes with vim
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -158,10 +161,10 @@ nnoremap <silent>gO O<esc>j                " Insert newline above without enteri
 nnoremap <silent><leader>f :CtrlP<Enter>
 nnoremap <silent><Leader>fu :CtrlPFunky<Cr>
 nnoremap <silent><Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>  " narrow the list down with a word under cursor
-nnoremap <silent><leader>n :call ToggleNERDTree()<cr>
+nnoremap <silent><leader>n :ToggleNERDTree<cr>
 nnoremap <silent><leader>m :TagbarToggle<cr>
-nnoremap <silent><leader>ln :call ToggleNumRel()<cr>
-nnoremap <silent><leader>qf :call ToggleQuickfix()<cr>
+nnoremap <silent><leader>ln :ToggleNumRel<cr>
+nnoremap <silent><leader>qf :ToggleQuickfix<cr>
 
 " Insert mode key mappings 
 inoremap <Up> <NOP>
@@ -218,6 +221,15 @@ function! ToggleNumRel()
     set nu
   endif
 endfunction
+
+command!  ToggleNumRel
+      \ call ToggleNumRel()
+
+command! ToggleNERDTree
+      \ call ToggleNERDTree()
+
+command! ToggleQuickfix
+      \ call ToggleQuickfix()
 
 let g:quickfix_is_open = 0
 
