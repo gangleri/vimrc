@@ -47,11 +47,11 @@ Web dev plugins HTML, JavaScript CSS etc...
 * [HTML5 Syntax](http://github.com/othree/html5-syntax.vim)
 * [HTML AutoClose](http://github.com/vim-scripts/HTML-AutoCloseTag)
 
-## HTML Templating ##
+### HTML Templating ###
 * [Jade](http://github.com/digitaltoad/vim-jade)
 * [Handlebars](http://github.com/nono/vim-handlebars)
 
-## JavaScript/Node ###
+### JavaScript/Node ###
 * [JavaScript](http://github.com/pangloss/vim-javascript)
 * [JSON](http://github.com/helino/vim-json)
 * [JS Beautify](http://github.com/einars/js-beautify)
