@@ -43,7 +43,7 @@ Bundle 'int3/vim-taglist-plus'
 Bundle 'jimsei/winresizer.git'
 " mw-utils & tlib required for Snipmate
 Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle "tomtom/tlib_vim"
+Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'szw/vim-smartclose'
 Bundle 'Lokaltog/powerline'
@@ -54,6 +54,7 @@ Bundle 'gangleri/vim-diffsaved'
 Bundle 'mattn/zencoding-vim'
 Bundle 'lukaszb/vim-web-indent'
 Bundle 'othree/html5-syntax.vim'
+Bundle 'vim-scripts/HTML-AutoCloseTag'
 
 " HTML templating 
 Bundle 'digitaltoad/vim-jade'
@@ -63,17 +64,20 @@ Bundle 'nono/vim-handlebars'
 Bundle 'pangloss/vim-javascript'
 Bundle 'helino/vim-json'
 Bundle 'einars/js-beautify'
-Bundle 'vim-scripts/pathogen.vim'
 Bundle 'mmalecki/vim-node.js'
+Bundle 'walm/jshint.vim'
 
 " CSS Bundles
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'stubbornella/csslint'
 Bundle 'skammer/vim-css-color'
+Bundle 'tpope/vim-haml'
 
 " C/C++
+Bundle 'vim-scripts/c.vim'
 Bundle 'vim-scripts/CRefVim'
 Bundle 'vim-scripts/vimgdb'
+Bundle 'vim-scripts/Cpp11-Syntax-Support'
 
 " C#
 Bundle 'xandox/vim-csharp'
@@ -81,26 +85,35 @@ Bundle 'xandox/vim-csharp'
 " Python
 Bundle 'rkulla/pydiction'
 Bundle 'nvie/vim-flake8'
+Bundle 'fs111/pydoc.vim'
+Bundle 'vim-scripts/django.vim'
 
 " Erlang
 Bundle 'oscarh/vimerl'
 Bundle 'hcs42/vim-erlang'
 
+" R
+Bundle 'jcfaria/Vim-R-plugin'
+
 " Git
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
 Bundle 'rdolgushin/gitignore.vim'
+Bundle 'mattn/gist-vim'
 
 " Misc
 Bundle 'vim-scripts/awk.vim'
 Bundle 'evanmiller/nginx-vim-syntax'
+Bundle 'vim-scripts/csv.vim'
 
 " Color schemes
 Bundle 'flazz/vim-colorschemes'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'rking/vim-detailed'
+Bundle 'jnurmine/Zenburn'
 
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme wombat256
 
 let g:bufExplorerShowRelativePath=1   " Use relative paths in buffer explorer
 let g:indentLine_color_term = 239
@@ -152,12 +165,20 @@ nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 nnoremap <f5> :!ctags -R<cr>
+nnoremap <c-h> <c-w>h                       " Jump to window to the right of current 
+nnoremap <c-j> <c-w>j                       " Jump to window below current
+nnoremap <c-k> <c-w>k                       " Jump to window above current
+nnoremap <c-l> <c-w>l                       " Jump to window to the left of current
+nnoremap <c-left> <c-w>h                    " Jump to window to the right of current  
+nnoremap <c-down> <c-w>j                    " Jump to window below current           
+nnoremap <c-up> <c-w>k                      " Jump to window above current           
+nnoremap <c-right> <c-w>l                   " Jump to window to the left of current  
 nnoremap <silent><s-up> :m -2<cr>           " move line up 1
 nnoremap <silent><s-down> :m +1<cr>         " move line down 1
 nnoremap <silent><leader>s :set spell!<cr>  " toggle highlight of spelling mistakes
 nnoremap <silent><leader>sm  i<c-x>
-nnoremap <silent>go o<esc>j                 " Insert newline below without entering insert mode
-nnoremap <silent>gO O<esc>j                " Insert newline above without entering insert mode
+nnoremap <silent>go o<esc>                  " Insert newline below without entering insert mode
+nnoremap <silent>gO O<esc>                  " Insert newline above without entering insert mode
 nnoremap <silent><leader>f :CtrlP<Enter>
 nnoremap <silent><Leader>fu :CtrlPFunky<Cr>
 nnoremap <silent><Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>  " narrow the list down with a word under cursor
@@ -222,15 +243,6 @@ function! ToggleNumRel()
   endif
 endfunction
 
-command!  ToggleNumRel
-      \ call ToggleNumRel()
-
-command! ToggleNERDTree
-      \ call ToggleNERDTree()
-
-command! ToggleQuickfix
-      \ call ToggleQuickfix()
-
 let g:quickfix_is_open = 0
 
 function! ToggleQuickfix()
@@ -245,4 +257,12 @@ function! ToggleQuickfix()
   endif
 endfunction
 
+command!  ToggleNumRel
+      \ call ToggleNumRel()
+
+command! ToggleNERDTree
+      \ call ToggleNERDTree()
+
+command! ToggleQuickfix
+      \ call ToggleQuickfix()
 
