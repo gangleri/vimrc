@@ -92,6 +92,11 @@ Bundle 'vim-scripts/django.vim'
 Bundle 'oscarh/vimerl'
 Bundle 'hcs42/vim-erlang'
 
+" Arduino
+Bundle 'vim-scripts/Arduino-syntax-file'
+Bundle 'tclem/vim-arduino'
+Bundle 'kingbin/vim-arduino'
+
 " R
 Bundle 'jcfaria/Vim-R-plugin'
 
@@ -137,6 +142,7 @@ set wildmode=longest,list,full      " How complection mode will operate, complet
 set wildmenu                        " command line completion operate in enhanced mode
 set number                          " show line numbers
 set hidden                          " Hidden buffer has unsaved modifications and is not displayed in a window. Setting this allows editing other buffer without saving current changes 
+set ignorecase
 set smartcase                       " Ignores case if the pattern contains lowercase letters only 
 set ruler                           " Show the line and column separated by a comma 
 set scrolloff=3                     " Minimal number of screen lines to keep above and below the cursor 
@@ -180,8 +186,8 @@ nnoremap <silent><leader>sm  i<c-x>
 nnoremap <silent>go o<esc>                  " Insert newline below without entering insert mode
 nnoremap <silent>gO O<esc>                  " Insert newline above without entering insert mode
 nnoremap <silent><leader>f :CtrlP<Enter>
-nnoremap <silent><Leader>fu :CtrlPFunky<Cr>
-nnoremap <silent><Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>  " narrow the list down with a word under cursor
+nnoremap <silent><leader>fu :CtrlPFunky<cr>
+nnoremap <silent><leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>  " narrow the list down with a word under cursor
 nnoremap <silent><leader>n :ToggleNERDTree<cr>
 nnoremap <silent><leader>m :TagbarToggle<cr>
 nnoremap <silent><leader>ln :ToggleNumRel<cr>
