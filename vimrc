@@ -49,6 +49,7 @@ Bundle 'szw/vim-smartclose'
 Bundle 'Lokaltog/powerline'
 Bundle 'Lokaltog/powerline-fonts'
 Bundle 'gangleri/vim-diffsaved'
+Bundle 'gangleri/vim-touchpad-on-off'
 
 " HTML Bundles
 Bundle 'mattn/zencoding-vim'
@@ -99,6 +100,9 @@ Bundle 'kingbin/vim-arduino'
 
 " R
 Bundle 'jcfaria/Vim-R-plugin'
+
+" Fortran
+Bundle 'vim-scripts/ratfor.vim'
 
 " Git
 Bundle 'airblade/vim-gitgutter'
@@ -192,6 +196,8 @@ nnoremap <silent><leader>n :ToggleNERDTree<cr>
 nnoremap <silent><leader>m :TagbarToggle<cr>
 nnoremap <silent><leader>ln :ToggleNumRel<cr>
 nnoremap <silent><leader>qf :ToggleQuickfix<cr>
+nnoremap <silent><leader><right> :bn<cr>
+nnoremap <silent><leader><left> :bp<cr>
 
 " Insert mode key mappings 
 inoremap <Up> <NOP>
@@ -209,9 +215,6 @@ vnoremap <Right> <NOP>
 vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " Auto commands
-au InsertEnter * set cursorline     " highlight the line the cursor is on when entering insert mode
-au InsertLeave * set nocursorline   " stop highlighting the cursor line when leave insert mode
-au InsertLeave * Autoformat         " call auto format when leaving insert mode so that code remain formatted
 
 " My Vim script functions
 
