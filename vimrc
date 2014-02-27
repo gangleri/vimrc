@@ -66,7 +66,8 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'helino/vim-json'
 Bundle 'einars/js-beautify'
 Bundle 'mmalecki/vim-node.js'
-Bundle 'walm/jshint.vim'
+" Bundle 'walm/jshint.vim'
+Bundle 'Shutnik/jshint2.vim'
 
 " CSS Bundles
 Bundle 'hail2u/vim-css3-syntax'
@@ -274,4 +275,6 @@ command! ToggleNERDTree
 
 command! ToggleQuickfix
       \ call ToggleQuickfix()
+
+command Hoff nohlsearch
 
