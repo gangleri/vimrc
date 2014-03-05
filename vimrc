@@ -122,8 +122,10 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'rking/vim-detailed'
 Bundle 'jnurmine/Zenburn'
 
-" colorscheme jellybeans
 colorscheme wombat256
+
+" hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
 
 let g:bufExplorerShowRelativePath=1   " Use relative paths in buffer explorer
 let g:indentLine_color_term = 239
