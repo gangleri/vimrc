@@ -36,7 +36,6 @@ Bundle 'vim-scripts/UnconditionalPaste'
 Bundle 'Chiel92/vim-autoformat'
 Bundle 'Yggdroot/indentLine'
 Bundle 'vim-scripts/vim-easy-align'
-Bundle 'sk1418/QFGrep'
 Bundle 'powerman/vim-plugin-viewdoc'
 Bundle 'majutsushi/tagbar'
 Bundle 'int3/vim-taglist-plus'
@@ -57,16 +56,11 @@ Bundle 'lukaszb/vim-web-indent'
 Bundle 'othree/html5-syntax.vim'
 Bundle 'vim-scripts/HTML-AutoCloseTag'
 
-" HTML templating 
-Bundle 'digitaltoad/vim-jade'
-Bundle 'nono/vim-handlebars'
-
 " JavaScript/Node Bundles
 Bundle 'pangloss/vim-javascript'
 Bundle 'helino/vim-json'
 Bundle 'einars/js-beautify'
 Bundle 'mmalecki/vim-node.js'
-" Bundle 'walm/jshint.vim'
 Bundle 'Shutnik/jshint2.vim'
 
 " CSS Bundles
@@ -80,9 +74,6 @@ Bundle 'vim-scripts/c.vim'
 Bundle 'vim-scripts/CRefVim'
 Bundle 'vim-scripts/vimgdb'
 Bundle 'vim-scripts/Cpp11-Syntax-Support'
-
-" C#
-Bundle 'xandox/vim-csharp'
 
 " Python
 Bundle 'rkulla/pydiction'
@@ -115,14 +106,15 @@ Bundle 'mattn/gist-vim'
 Bundle 'vim-scripts/awk.vim'
 Bundle 'evanmiller/nginx-vim-syntax'
 Bundle 'vim-scripts/csv.vim'
+Bundle 'scrooloose/syntastic'
 
 " Color schemes
 Bundle 'flazz/vim-colorschemes'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'rking/vim-detailed'
-Bundle 'jnurmine/Zenburn'
 
-colorscheme wombat256
+colorscheme campfire
+" wombat256
 
 " hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
