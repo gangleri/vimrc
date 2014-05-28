@@ -101,6 +101,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
 Bundle 'rdolgushin/gitignore.vim'
 Bundle 'mattn/gist-vim'
+Bundle 'jaxbot/github-issues.vim'
 
 " Misc
 Bundle 'vim-scripts/awk.vim'
