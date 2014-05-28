@@ -49,10 +49,9 @@ Bundle 'Lokaltog/powerline'
 Bundle 'Lokaltog/powerline-fonts'
 Bundle 'gangleri/vim-diffsaved'
 Bundle 'gangleri/vim-touchpad-on-off'
+Bundle 'editorconfig/editorconfig-vim'
 
 " HTML Bundles
-Bundle 'mattn/zencoding-vim'
-Bundle 'lukaszb/vim-web-indent'
 Bundle 'othree/html5-syntax.vim'
 Bundle 'vim-scripts/HTML-AutoCloseTag'
 
@@ -84,11 +83,6 @@ Bundle 'vim-scripts/django.vim'
 " Erlang
 Bundle 'oscarh/vimerl'
 Bundle 'hcs42/vim-erlang'
-
-" Arduino
-Bundle 'vim-scripts/Arduino-syntax-file'
-Bundle 'tclem/vim-arduino'
-Bundle 'kingbin/vim-arduino'
 
 " R
 Bundle 'jcfaria/Vim-R-plugin'
