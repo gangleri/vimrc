@@ -127,6 +127,7 @@ runtime macros/matchit.vim          " use matchit that comes with vim
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " VIM settins
+call matchadd('ColorColumn', '\%81v', 100) " mark when I go over 80 chars per line
 set nowrap                          " Disable line wrapping, will now scroll horizontially for long linnes
 set showcmd                         " Have bottom line show details of command being executed
 set mouse=a                         " enable scrolling in the terminal vim
@@ -160,6 +161,7 @@ set encoding=utf-8                  " Set the character encoding used inside VIM
 set spelllang=en_us 
 
 " Normal mode key mappings 
+noremap ; :
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
