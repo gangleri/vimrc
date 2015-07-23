@@ -46,6 +46,7 @@ Plugin 'powerline/fonts'
 Plugin 'vim-scripts/csv.vim'
 Plugin 'gangleri/vim-toggle-relative-line-numbers'
 Plugin 'gangleri/vim-toggle-quick-fix'
+Plugin 'gangleri/vim-toggle-nerd-tree'
 
 " HTML Plugins
 Plugin 'othree/html5-syntax.vim'
@@ -177,7 +178,6 @@ nnoremap <silent>gu :GundoToggle<cr>
 nnoremap <silent><leader>f :CtrlP<Enter>
 nnoremap <silent><leader>fu :CtrlPFunky<cr>
 nnoremap <silent><leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>  " narrow the list down with a word under cursor
-nnoremap <silent><leader>n :ToggleNERDTree<cr>
 nnoremap <silent><leader>m :TagbarToggle<cr>
 nnoremap <silent><leader><right> :bn<cr>
 nnoremap <silent><leader><left> :bp<cr>
@@ -203,37 +203,6 @@ vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " Auto commands
 au BufNewFile,BufRead *rc call SetFileTypeSH("bash")
-
-" My Vim script functions
-
-function! ToggleNERDTree()
-  let w:jumpbacktohere = 1
-  " Detect which plugins are open
-  if exists('t:NERDTreeBufName')
-    let nerdtree_open = bufwinnr(t:NERDTreeBufName) != -1
-  else
-    let nerdtree_open = 0
-  endif
-
-  " Perform the appropriate action
-  if nerdtree_open
-    NERDTreeClose
-  else
-    NERDTree
-  endif
-
-  " Jump back to the original window
-  for window in range(1, winnr('$'))
-    execute window . 'wincmd w'
-    if exists('w:jumpbacktohere')
-      unlet w:jumpbacktohere
-      break
-    endif
-  endfor
-endfunction
-
-command! ToggleNERDTree
-      \ call ToggleNERDTree()
 
 command Hoff nohlsearch
 
