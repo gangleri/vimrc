@@ -46,7 +46,6 @@ Plugin 'powerline/fonts'
 Plugin 'vim-scripts/csv.vim'
 Plugin 'gangleri/vim-toggle-relative-line-numbers'
 Plugin 'gangleri/vim-toggle-quick-fix'
-Plugin 'gangleri/vim-toggle-nerd-tree'
 
 " HTML Plugins
 Plugin 'othree/html5-syntax.vim'
@@ -181,6 +180,7 @@ nnoremap <silent><leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>  " na
 nnoremap <silent><leader>m :TagbarToggle<cr>
 nnoremap <silent><leader><right> :bn<cr>
 nnoremap <silent><leader><left> :bp<cr>
+nnoremap <silent><leader>n :NERDTreeToggle<cr>
 
 " Insert mode key mappings
 inoremap <Up> <NOP>
