@@ -45,6 +45,7 @@ Plugin 'bling/vim-airline'
 Plugin 'powerline/fonts'
 Plugin 'vim-scripts/csv.vim'
 Plugin 'gangleri/vim-toggle-relative-line-numbers'
+Plugin 'gangleri/vim-toggle-quick-fix'
 
 " HTML Plugins
 Plugin 'othree/html5-syntax.vim'
@@ -178,7 +179,6 @@ nnoremap <silent><leader>fu :CtrlPFunky<cr>
 nnoremap <silent><leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>  " narrow the list down with a word under cursor
 nnoremap <silent><leader>n :ToggleNERDTree<cr>
 nnoremap <silent><leader>m :TagbarToggle<cr>
-nnoremap <silent><leader>qf :ToggleQuickfix<cr>
 nnoremap <silent><leader><right> :bn<cr>
 nnoremap <silent><leader><left> :bp<cr>
 
@@ -232,25 +232,8 @@ function! ToggleNERDTree()
   endfor
 endfunction
 
-let g:quickfix_is_open = 0
-
-function! ToggleQuickfix()
-  if g:quickfix_is_open
-    cclose
-    let g:quickfix_is_open = 0
-    execute g:quickfix_return_to_window . "wincmd w"
-  else
-    let g:quickfix_return_to_window = winnr()
-    copen
-    let g:quickfix_is_open = 1
-  endif
-endfunction
-
 command! ToggleNERDTree
       \ call ToggleNERDTree()
-
-command! ToggleQuickfix
-      \ call ToggleQuickfix()
 
 command Hoff nohlsearch
 
