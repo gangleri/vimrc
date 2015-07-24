@@ -46,6 +46,7 @@ Plugin 'powerline/fonts'
 Plugin 'vim-scripts/csv.vim'
 Plugin 'gangleri/vim-toggle-relative-line-numbers'
 Plugin 'gangleri/vim-toggle-quick-fix'
+Plugin 'gangleri/vim-touchpad-on-off'
 
 " HTML Plugins
 Plugin 'othree/html5-syntax.vim'
