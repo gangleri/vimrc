@@ -47,6 +47,7 @@ Plugin 'vim-scripts/csv.vim'
 Plugin 'gangleri/vim-toggle-relative-line-numbers'
 Plugin 'gangleri/vim-toggle-quick-fix'
 Plugin 'gangleri/vim-touchpad-on-off'
+Plugin 'gangleri/vim-diffsaved'
 
 " HTML Plugins
 Plugin 'othree/html5-syntax.vim'
@@ -92,6 +93,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'rdolgushin/gitignore.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'jaxbot/github-issues.vim'
+Plugin 'sjl/splice.vim'
 
 " Docker
 Plugin 'ekalinin/Dockerfile.vim'
