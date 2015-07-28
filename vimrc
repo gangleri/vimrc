@@ -118,6 +118,8 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 let g:viewdoc_open='botright vnew'
 let g:ctrlp_extensions = ['funky']
 let g:airline_powerline_fonts=1
+let g:search_engine='https://duckduckgo.com/?q='
+let g:syntastic_javascript_checkers = ['standard']
 
 runtime macros/matchit.vim          " use matchit that comes with vim
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -128,6 +130,7 @@ set nowrap                          " Disable line wrapping, will now scroll hor
 set showcmd                         " Have bottom line show details of command being executed
 set mouse=a                         " enable scrolling in the terminal vim
 set autoindent                      " Copy indent from current line when starting a new line
+set autoread
 set cindent                         " Indent C style programs
 set wildmode=longest,list,full      " How complection mode will operate, complete longest first, show list if more than 1 and complete next full match
 set wildmenu                        " command line completion operate in enhanced mode
@@ -206,6 +209,7 @@ vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " Auto commands
 au BufNewFile,BufRead *rc call SetFileTypeSH("bash")
+au bufwritepost *.js silent !standard % --format
 
 command Hoff nohlsearch
 
