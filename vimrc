@@ -48,6 +48,7 @@ Plugin 'gangleri/vim-toggle-relative-line-numbers'
 Plugin 'gangleri/vim-toggle-quick-fix'
 Plugin 'gangleri/vim-touchpad-on-off'
 Plugin 'gangleri/vim-diffsaved'
+Plugin 'gavinbeatty/dragvisuals.vim'
 
 " HTML Plugins
 Plugin 'othree/html5-syntax.vim'
@@ -58,6 +59,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'leshill/vim-json'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'moll/vim-node'
+Plugin 'jamescarr/snipmate-nodejs'
 
 " CSS Plugins
 Plugin 'hail2u/vim-css3-syntax'
@@ -201,15 +203,19 @@ else
 endif
 
 " Visual mode key mappings
-vnoremap <Up> <NOP>
-vnoremap <Down> <NOP>
-vnoremap <Left> <NOP>
-vnoremap <Right> <NOP>
+vmap <expr> <RIGHT> DVB_Drag('right')
+vmap <expr> <LEFT> DVB_Drag('left')
+vmap <expr> <DOWN> DVB_Drag('down')
+vmap <expr> <UP> DVB_Drag('up')
+vmap <expr> D DVB_Duplicate()
+
 vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " Auto commands
 au BufNewFile,BufRead *rc call SetFileTypeSH("bash")
 au bufwritepost *.js silent !standard % --format
 
+" Commands
 command Hoff nohlsearch
+command! NiceJson %!python -m json.tool
 
