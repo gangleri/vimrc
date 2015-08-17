@@ -59,7 +59,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'leshill/vim-json'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'moll/vim-node'
-Plugin 'jamescarr/snipmate-nodejs'
+Plugin 'gangleri/snipmate-nodejs'
 
 " CSS Plugins
 Plugin 'hail2u/vim-css3-syntax'
