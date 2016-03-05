@@ -47,7 +47,6 @@ Plugin 'vim-scripts/csv.vim'
 Plugin 'gangleri/vim-toggle-relative-line-numbers'
 Plugin 'gangleri/vim-toggle-quick-fix'
 Plugin 'gangleri/vim-touchpad-on-off'
-Plugin 'gangleri/vim-diffsaved'
 Plugin 'gavinbeatty/dragvisuals.vim'
 
 " HTML Plugins
@@ -59,7 +58,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'leshill/vim-json'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'moll/vim-node'
-Plugin 'gangleri/snipmate-nodejs'
 
 " CSS Plugins
 Plugin 'hail2u/vim-css3-syntax'
@@ -121,7 +119,7 @@ let g:viewdoc_open='botright vnew'
 let g:ctrlp_extensions = ['funky']
 let g:airline_powerline_fonts=1
 let g:search_engine='https://duckduckgo.com/?q='
-let g:syntastic_javascript_checkers = ['standard']
+" let g:syntastic_javascript_checkers = ['standard']
 
 runtime macros/matchit.vim          " use matchit that comes with vim
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -213,7 +211,8 @@ vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " Auto commands
 au BufNewFile,BufRead *rc call SetFileTypeSH("bash")
-au bufwritepost *.js silent !standard % --format
+au! BufNewFile,BufRead * if getline(1) =~ '/bin/env node' | set syntax=javascript | endif
+" au bufwritepost *.js silent !standard % --format
 
 " Commands
 command Hoff nohlsearch
