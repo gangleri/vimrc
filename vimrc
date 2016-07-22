@@ -66,6 +66,9 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'vim-scripts/c.vim'
 Plugin 'vim-scripts/CRefVim'
 
+" Elm
+Plugin 'lambdatoast/elm.vim'
+
 " Go
 Plugin 'fatih/vim-go'
 
@@ -92,7 +95,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rdolgushin/gitignore.vim'
 Plugin 'mattn/gist-vim'
-Plugin 'jaxbot/github-issues.vim'
 Plugin 'sjl/splice.vim'
 
 " Docker
