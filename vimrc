@@ -52,6 +52,7 @@ Plugin 'gavinbeatty/dragvisuals.vim'
 " HTML Plugins
 Plugin 'othree/html5-syntax.vim'
 Plugin 'vim-scripts/HTML-AutoCloseTag'
+Plugin 'mattn/emmet-vim'
 
 " JavaScript/Node Plugins
 Plugin 'pangloss/vim-javascript'
