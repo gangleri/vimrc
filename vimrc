@@ -14,7 +14,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " VIM general
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/AutoClose'
@@ -48,11 +48,14 @@ Plugin 'gangleri/vim-toggle-relative-line-numbers'
 Plugin 'gangleri/vim-toggle-quick-fix'
 Plugin 'gangleri/vim-touchpad-on-off'
 Plugin 'gavinbeatty/dragvisuals.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'ryanoasis/vim-devicons'
 
 " HTML Plugins
+Plugin 'mattn/emmet-vim'
 Plugin 'othree/html5-syntax.vim'
 Plugin 'vim-scripts/HTML-AutoCloseTag'
-Plugin 'mattn/emmet-vim'
 
 " JavaScript/Node Plugins
 Plugin 'pangloss/vim-javascript'
@@ -74,7 +77,7 @@ Plugin 'lambdatoast/elm.vim'
 Plugin 'fatih/vim-go'
 
 " Rust
-Plugin 'wting/rust.vim'
+Plugin 'rust-lang/rust.vim'
 
 " Python
 Plugin 'klen/python-mode.git'
@@ -160,6 +163,7 @@ set laststatus=2                    " Sets when the last window will have a stat
 set t_Co=256                        " Number of colors
 set encoding=utf-8                  " Set the character encoding used inside VIM. Applies to text in buffers, registers, Strings in expressions etc.
 set spelllang=en_us
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 
 " Normal mode key mappings
 noremap ; :
