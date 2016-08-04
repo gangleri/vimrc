@@ -65,6 +65,7 @@ Plugin 'moll/vim-node'
 
 " CSS Plugins
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'Blackrush/vim-gocode'
 
 " C/C++
 Plugin 'vim-scripts/c.vim'
@@ -116,6 +117,7 @@ colorscheme campfire
 " hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
 
+let g:ycm_path_to_python_interpreter="/usr/bin/python"
 let g:bufExplorerShowRelativePath=1   " Use relative paths in buffer explorer
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
@@ -218,6 +220,7 @@ vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " Auto commands
 au BufNewFile,BufRead *rc call SetFileTypeSH("bash")
+au BufNewFile,BufRead *.go silent !gocode
 au! BufNewFile,BufRead * if getline(1) =~ '/bin/env node' | set syntax=javascript | endif
 " au bufwritepost *.js silent !standard % --format
 
