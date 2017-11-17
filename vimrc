@@ -39,18 +39,28 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-speeddating'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'powerline/fonts'
 Plugin 'vim-scripts/csv.vim'
 Plugin 'gangleri/vim-toggle-relative-line-numbers'
 Plugin 'gangleri/vim-toggle-quick-fix'
 Plugin 'gangleri/vim-touchpad-on-off'
 Plugin 'gavinbeatty/dragvisuals.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'felixhummel/setcolors.vim'
+Plugin 'exitface/synthwave.vim'
+Plugin 'kamwitsta/nordisk'
+Plugin 'yonchu/accelerated-smooth-scroll'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'zchee/deoplete-go'
+Plugin 'w0rp/ale'
+Plugin 'mbbill/undotree'
+
+" Ansible
+Plugin 'chase/vim-ansible-yaml'
 
 " HTML Plugins
 Plugin 'mattn/emmet-vim'
@@ -65,7 +75,6 @@ Plugin 'moll/vim-node'
 
 " CSS Plugins
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'Blackrush/vim-gocode'
 
 " C/C++
 Plugin 'vim-scripts/c.vim'
@@ -76,6 +85,7 @@ Plugin 'lambdatoast/elm.vim'
 
 " Go
 Plugin 'fatih/vim-go'
+Plugin 'sebdah/vim-delve'
 
 " Rust
 Plugin 'rust-lang/rust.vim'
@@ -105,18 +115,25 @@ Plugin 'sjl/splice.vim'
 " Docker
 Plugin 'ekalinin/Dockerfile.vim'
 
+" Markdown
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
 " Color schemes
-Plugin 'flazz/vim-colorschemes'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'rking/vim-detailed'
+" Plugin 'flazz/vim-colorschemes'
+" Plugin 'nanotech/jellybeans.vim'
+" Plugin 'rking/vim-detailed'
+Plugin 'ajmwagar/vim-deus'
 
 call vundle#end()
 
-colorscheme campfire
+set background=dark
+colorscheme nordisk
+" colorscheme deus
 
 " hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
 
+let g:Powerline_symbols = 'fancy'
 let g:ycm_path_to_python_interpreter="/usr/bin/python"
 let g:bufExplorerShowRelativePath=1   " Use relative paths in buffer explorer
 let g:indentLine_color_term = 239
@@ -126,8 +143,42 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 let g:viewdoc_open='botright vnew'
 let g:ctrlp_extensions = ['funky']
 let g:airline_powerline_fonts=1
+let g:airline_theme='bubblegum'
 let g:search_engine='https://duckduckgo.com/?q='
-" let g:syntastic_javascript_checkers = ['standard']
+let g:smooth_scroll_duration=50
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+let g:airline#extensions#ale#enabled = 1
+let g:go_auto_type_info = 1
+let g:go_fmt_command = "goimports"
+let g:delve_backend = "native"
+let g:ale_linters = {'go': ['gometalinter'], 'javascript': ['eslint']}
+if has('nvim')
+	" Enable deoplete on startup
+	let g:deoplete#enable_at_startup = 1
+endif
+
+" Set a terminal color scheme
+let g:terminal_color_0  = '#2e3436'
+let g:terminal_color_1  = '#cc0000'
+let g:terminal_color_2  = '#4e9a06'
+let g:terminal_color_3  = '#c4a000'
+let g:terminal_color_4  = '#3465a4'
+let g:terminal_color_5  = '#75507b'
+let g:terminal_color_6  = '#0b939b'
+let g:terminal_color_7  = '#d3d7cf'
+let g:terminal_color_8  = '#555753'
+let g:terminal_color_9  = '#ef2929'
+let g:terminal_color_10 = '#8ae234'
+let g:terminal_color_11 = '#fce94f'
+let g:terminal_color_12 = '#729fcf'
+let g:terminal_color_13 = '#ad7fa8'
+let g:terminal_color_14 = '#00f5e9'
+let g:terminal_color_15 = '#eeeeec'
+
+let vim_markdown_preview_github=1
+let vim_markdown_preview_toggle=2
+let vim_markdown_preview_temp_file=1
 
 runtime macros/matchit.vim          " use matchit that comes with vim
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -135,8 +186,8 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " VIM settins
 call matchadd('ColorColumn', '\%81v', 100) " mark when I go over 80 chars per line
 set nowrap                          " Disable line wrapping, will now scroll horizontially for long linnes
+set mouse=a
 set showcmd                         " Have bottom line show details of command being executed
-set mouse=a                         " enable scrolling in the terminal vim
 set autoindent                      " Copy indent from current line when starting a new line
 set autoread
 set cindent                         " Indent C style programs
@@ -151,21 +202,25 @@ set scrolloff=3                     " Minimal number of screen lines to keep abo
 set incsearch                       " When typing a search command show what matches as you type
 set hlsearch                        " Highlight all matches of a previous search pattern
 set title                           " Set the title of the window to the value contained in 'titlestring'
-set titlestring=\%t\ %a%r%m titlelen=70
-" Disable beep and flash
+set titlestring=\%t\ %a%r%m titlelen=70 " Disable beep and flash
 set vb t_vb=". c
 set directory=$HOME/.vim/tmp//,.    " Keep swap files in one location
 set nobackup                        " don't make backups before overwriting a file *
 set nowritebackup                   " don't make backups before overwriting a file
-set softtabstop=2                   " Number of spaces <Tab> counts for while performing edit like insert a <Tab> or using <BS>
-set shiftwidth=2                    " Number of spaces to use for each step of (auto)indent. Used for cindent, >>,<< etc.
-set tabstop=2                       " Number of spaces that <Tab> counts for in a file
+set softtabstop=4                   " Number of spaces <Tab> counts for while performing edit like insert a <Tab> or using <BS>
+set shiftwidth=4                    " Number of spaces to use for each step of (auto)indent. Used for cindent, >>,<< etc.
+set tabstop=4                       " Number of spaces that <Tab> counts for in a file
 set nofoldenable                    " All fold will be open
 set laststatus=2                    " Sets when the last window will have a status line, set to always
 set t_Co=256                        " Number of colors
 set encoding=utf-8                  " Set the character encoding used inside VIM. Applies to text in buffers, registers, Strings in expressions etc.
 set spelllang=en_us
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+set splitbelow
+set guifont=Fira\ Code:h12
+
+if has("termguicolors")
+	set termguicolors
+endif
 
 " Normal mode key mappings
 noremap ; :
@@ -196,6 +251,8 @@ nnoremap <silent><leader>m :TagbarToggle<cr>
 nnoremap <silent><leader><right> :bn<cr>
 nnoremap <silent><leader><left> :bp<cr>
 nnoremap <silent><leader>n :NERDTreeToggle<cr>
+nnoremap <leader>nj :NiceJson<cr>
+nnoremap <leader>mdp :call Vim_Markdown_Preview()<cr>
 
 " Insert mode key mappings
 inoremap <Up> <NOP>
@@ -222,9 +279,20 @@ vnoremap <silent> <Enter> :EasyAlign<cr>
 au BufNewFile,BufRead *rc call SetFileTypeSH("bash")
 au BufNewFile,BufRead *.go silent !gocode
 au! BufNewFile,BufRead * if getline(1) =~ '/bin/env node' | set syntax=javascript | endif
-" au bufwritepost *.js silent !standard % --format
+au FileType go nmap <leader>ga :GoAlternate<cr>
+au FileType go nmap <leader>gb :DlvToggleBreakpoint<cr>
+au FileType go nmap <leader>gt :GoDeclsDir<cr>
+au FileType go nmap <leader>gct :GoCoverageToggle -short<cr>
+au FileType go nmap T :GoTest -short<cr>
+
+au FileType * nmap H :nohlsearch<cr>
 
 " Commands
-command Hoff nohlsearch
 command! NiceJson %!python -m json.tool
+command! Grepl call OpenGoRepl()
+
+function OpenGoRepl()
+	split | terminal gore
+	" split | terminal go-pry
+endfunction
 
