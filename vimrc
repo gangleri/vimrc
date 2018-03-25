@@ -58,6 +58,7 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'zchee/deoplete-go'
 Plugin 'w0rp/ale'
 Plugin 'mbbill/undotree'
+Plugin 'mileszs/ack.vim'
 
 " Ansible
 Plugin 'chase/vim-ansible-yaml'
@@ -180,6 +181,9 @@ let vim_markdown_preview_github=1
 let vim_markdown_preview_toggle=2
 let vim_markdown_preview_temp_file=1
 
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = '﵂'
+
 runtime macros/matchit.vim          " use matchit that comes with vim
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
@@ -284,6 +288,8 @@ au FileType go nmap <leader>gb :DlvToggleBreakpoint<cr>
 au FileType go nmap <leader>gt :GoDeclsDir<cr>
 au FileType go nmap <leader>gct :GoCoverageToggle -short<cr>
 au FileType go nmap T :GoTest -short<cr>
+
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
 au FileType * nmap H :nohlsearch<cr>
 
