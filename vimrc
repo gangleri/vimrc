@@ -221,6 +221,7 @@ set encoding=utf-8                  " Set the character encoding used inside VIM
 set spelllang=en_us
 set splitbelow
 set guifont=Fira\ Code:h12
+set pastetoggle=<F2>
 
 if has("termguicolors")
 	set termguicolors
