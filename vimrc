@@ -74,6 +74,9 @@ Plugin 'leshill/vim-json'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'moll/vim-node'
 
+" TypeScript
+Plugin 'HerringtonDarkholme/yats.vim'
+
 " CSS Plugins
 Plugin 'hail2u/vim-css3-syntax'
 
@@ -227,6 +230,7 @@ set encoding=utf-8                  " Set the character encoding used inside VIM
 set spelllang=en_us
 set splitbelow
 set guifont=Fira\ Code:h12
+set pastetoggle=<F2>
 
 if has("termguicolors")
 	set termguicolors
