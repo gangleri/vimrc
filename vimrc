@@ -74,6 +74,9 @@ Plugin 'leshill/vim-json'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'moll/vim-node'
 
+" TypeScript
+Plugin 'HerringtonDarkholme/yats.vim'
+
 " CSS Plugins
 Plugin 'hail2u/vim-css3-syntax'
 
@@ -281,7 +284,7 @@ vmap <expr> D DVB_Duplicate()
 vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " Auto commands
-au BufNewFile,BufRead *rc call SetFileTypeSH("bash")
+au BufNewFile,BufRead *rc setfiletype bash
 au BufNewFile,BufRead *.go silent !gocode
 au! BufNewFile,BufRead * if getline(1) =~ '/bin/env node' | set syntax=javascript | endif
 au FileType go nmap <leader>ga :GoAlternate<cr>
