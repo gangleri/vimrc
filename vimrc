@@ -91,6 +91,9 @@ Plugin 'sebdah/vim-delve'
 " Rust
 Plugin 'rust-lang/rust.vim'
 
+" Crystal
+Plugin 'rhysd/vim-crystal'
+
 " Python
 Plugin 'klen/python-mode.git'
 Plugin 'fs111/pydoc.vim'
@@ -105,6 +108,9 @@ Plugin 'carlosgaldino/elixir-snippets'
 
 " Fortran
 Plugin 'vim-scripts/ratfor.vim'
+
+" Lua
+Plugin 'tbastos/vim-lua'
 
 " Git
 Plugin 'airblade/vim-gitgutter'
@@ -280,7 +286,7 @@ vmap <expr> D DVB_Duplicate()
 vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " Auto commands
-au BufNewFile,BufRead *rc call SetFileTypeSH("bash")
+au BufNewFile,BufRead *rc setfiletype bash
 au BufNewFile,BufRead *.go silent !gocode
 au! BufNewFile,BufRead * if getline(1) =~ '/bin/env node' | set syntax=javascript | endif
 au FileType go nmap <leader>ga :GoAlternate<cr>
