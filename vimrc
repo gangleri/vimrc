@@ -91,6 +91,9 @@ Plugin 'lambdatoast/elm.vim'
 Plugin 'fatih/vim-go'
 Plugin 'sebdah/vim-delve'
 
+" Homebrew
+Plugin 'bfontaine/Brewfile.vim'
+
 " Rust
 Plugin 'rust-lang/rust.vim'
 
@@ -298,6 +301,7 @@ au FileType go nmap <leader>gb :DlvToggleBreakpoint<cr>
 au FileType go nmap <leader>gt :GoDeclsDir<cr>
 au FileType go nmap <leader>gct :GoCoverageToggle -short<cr>
 au FileType go nmap T :GoTest -short<cr>
+au BufNewFile,BufRead Brewfile,.Brewfile set filetype=ruby syntax=brewfile
 
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
