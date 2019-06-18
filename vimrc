@@ -124,6 +124,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'rdolgushin/gitignore.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'sjl/splice.vim'
+Plugin 'rhysd/git-messenger.vim'
 
 " Docker
 Plugin 'ekalinin/Dockerfile.vim'
@@ -195,6 +196,8 @@ let vim_markdown_preview_temp_file=1
 
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = '﵂'
+
+let g:git_messenger_into_popup_after_show = 'true'
 
 runtime macros/matchit.vim          " use matchit that comes with vim
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
