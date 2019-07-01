@@ -138,6 +138,10 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 " Plugin 'rking/vim-detailed'
 Plugin 'ajmwagar/vim-deus'
 
+" Note taking
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
+
 call vundle#end()
 
 set background=dark
@@ -200,6 +204,9 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|vendor'
 let g:ctrlp_max_files=0
 
 let g:git_messenger_into_popup_after_show = 'true'
+
+let g:notes_directories = ['~/Library/Mobile\ Documents/com~apple~CloudDocs/Notes']
+
 
 runtime macros/matchit.vim          " use matchit that comes with vim
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
