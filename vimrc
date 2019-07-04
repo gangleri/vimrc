@@ -101,7 +101,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'rhysd/vim-crystal'
 
 " Python
-Plugin 'klen/python-mode.git'
+Plugin 'python-mode/python-mode'
 Plugin 'fs111/pydoc.vim'
 Plugin 'mitsuhiko/flask'
 
@@ -111,6 +111,9 @@ Plugin 'jimenezrick/vimerl'
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'carlosgaldino/elixir-snippets'
+
+" wasm
+Plugin 'rhysd/vim-wasm'
 
 " Fortran
 Plugin 'vim-scripts/ratfor.vim'
