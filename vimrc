@@ -164,6 +164,7 @@ let g:NERDTreeWinSize = 32
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 let g:viewdoc_open='botright vnew'
 let g:ctrlp_extensions = ['funky']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
 let g:search_engine='https://duckduckgo.com/?q='
