@@ -19,10 +19,9 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/AutoClose'
 Plugin 'tpope/vim-surround'
-Plugin 'c9s/bufexplorer'
 Plugin 'sjl/gundo.vim'
 Plugin 'airblade/vim-rooter'
-Plugin 'fholgado/minibufexpl.vim'
+Plugin 'ap/vim-buftabline'
 Plugin 'vim-scripts/lastpos.vim'
 Plugin 'vim-scripts/tComment'
 Plugin 'vim-scripts/file-line'
@@ -55,11 +54,17 @@ Plugin 'exitface/synthwave.vim'
 Plugin 'kamwitsta/nordisk'
 Plugin 'yonchu/accelerated-smooth-scroll'
 Plugin 'Shougo/deoplete.nvim'
-Plugin 'zchee/deoplete-go'
-Plugin 'w0rp/ale'
+Plugin 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+Plugin  'deoplete-plugins/deoplete-docker'
+Plugin 'deoplete-plugins/deoplete-clang'
+Plugin 'deoplete-plugins/deoplete-zsh'
+Plugin 'dense-analysis/ale'
 Plugin 'mbbill/undotree'
 Plugin 'mileszs/ack.vim'
 Plugin 'nicwest/vim-http'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'junegunn/fzf'
+Plugin 'SirVer/ultisnips'
 
 " Ansible
 Plugin 'chase/vim-ansible-yaml'
@@ -123,12 +128,13 @@ Plugin 'vim-scripts/ratfor.vim'
 Plugin 'tbastos/vim-lua'
 
 " Git
-Plugin 'airblade/vim-gitgutter'
+Plugin 'mhinz/vim-signify'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rdolgushin/gitignore.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'sjl/splice.vim'
 Plugin 'rhysd/git-messenger.vim'
+Plugin 'junegunn/gv.vim'
 
 " Docker
 Plugin 'ekalinin/Dockerfile.vim'
@@ -176,6 +182,12 @@ let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
 let g:delve_backend = "native"
 let g:ale_linters = {'go': ['gometalinter'], 'javascript': ['eslint']}
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+let g:deoplete#sources#go#gocode_binary = '/Users/alan/go/bin/gocode'
+
 if has('nvim')
 	" Enable deoplete on startup
 	let g:deoplete#enable_at_startup = 1
@@ -214,7 +226,8 @@ let g:notes_directories = ['~/Library/Mobile\ Documents/com~apple~CloudDocs/Note
 
 
 runtime macros/matchit.vim          " use matchit that comes with vim
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set rtp+=/usr/local/opt/fzf
 
 " VIM settins
 call matchadd('ColorColumn', '\%81v', 100) " mark when I go over 80 chars per line
@@ -251,6 +264,8 @@ set spelllang=en_us
 set splitbelow
 set guifont=Fira\ Code:h12
 set pastetoggle=<F2>
+set cmdheight=2
+set signcolumn=yes
 
 if has("termguicolors")
 	set termguicolors
@@ -271,6 +286,7 @@ nnoremap <c-left> <c-w>h                    " Jump to window to the right of cur
 nnoremap <c-down> <c-w>j                    " Jump to window below current
 nnoremap <c-up> <c-w>k                      " Jump to window above current
 nnoremap <c-right> <c-w>l                   " Jump to window to the left of current
+nnoremap <c-w>w :bd<cr>						" Close current buffer
 nnoremap <silent><s-up> :m -2<cr>           " move line up 1
 nnoremap <silent><s-down> :m +1<cr>         " move line down 1
 nnoremap <silent><leader>s :set spell!<cr>  " toggle highlight of spelling mistakes
@@ -293,6 +309,7 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+inoremap <silent><expr> <c-space> coc#refresh()
 
 if has("gui_running")
 	inoremap <C-Space> <C-n>
