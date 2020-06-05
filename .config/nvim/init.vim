@@ -65,6 +65,8 @@ Plugin 'nicwest/vim-http'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'junegunn/fzf'
 Plugin 'SirVer/ultisnips'
+Plugin 'pechorin/any-jump.vim'
+Plugin 'skywind3000/vim-dict'
 
 " Ansible
 Plugin 'chase/vim-ansible-yaml'
@@ -117,6 +119,9 @@ Plugin 'jimenezrick/vimerl'
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'carlosgaldino/elixir-snippets'
+
+" Open Poloicy Agent
+Plugin 'tsandall/vim-rego'
 
 " wasm
 Plugin 'rhysd/vim-wasm'
